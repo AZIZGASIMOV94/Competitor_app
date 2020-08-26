@@ -1,6 +1,6 @@
 package bean;
 
-public class Competitor extends Person{
+public class Competitors extends Person{
     private String country;
 
     public String getCountry() {

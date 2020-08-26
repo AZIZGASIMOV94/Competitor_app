@@ -1,15 +1,15 @@
 package bean;
 
 public class Config {
-    
-    private Competitors[] competitors = new Competitors[0];
+    private static Config config = null;
+    private Competitor[] competitors = new Competitor[0];
 
-    public Competitors[] getCompetitors() {
+    public Competitor[] getCompetitors() {
         return competitors;
     }
     
-    public void appendStudent(Competitors s ){
-        Competitors[] newCompetitors = new Competitors[competitors.length+1];
+    public void appendCompetitor(Competitor s ){
+        Competitor[] newCompetitors = new Competitor[competitors.length+1];
         for (int i = 0; i < competitors.length; i++) {
             newCompetitors[i]= competitors[i];    
         }
@@ -18,7 +18,14 @@ public class Config {
         competitors = newCompetitors;
     }
     
-    public void setCompetitors(Competitors[] competitors) {
+    public static Config instance(){
+       if(config == null){
+           config = new Config();
+       }
+       return config;
+    }
+    
+    public void setCompetitors(Competitor[] competitors) {
         this.competitors = competitors;
     }
 }
